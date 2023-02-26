@@ -25,6 +25,12 @@
 	};
 
 	let num = 5;
+
+	let showModal = false;
+
+	const toggleModal = () => {
+		showModal = !showModal;
+	};
 </script>
 
 <!-- <Modal /> -->
@@ -37,7 +43,8 @@
 {/if}
 
 <main>
-	<Modal message="Sign up for promo !" isPromo={true} />
+	<Modal message="Sign up for promo !" {showModal} on:click={toggleModal} />
+	<button on:click={toggleModal} />
 	<h1>Hello {fullName}!</h1>
 	<p>
 		Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn
