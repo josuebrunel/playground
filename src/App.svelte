@@ -44,7 +44,7 @@
 
 <main>
 	<Modal message="Sign up for promo !" {showModal} on:click={toggleModal} />
-	<button on:click={toggleModal} />
+	<button on:click|once={toggleModal} />
 	<h1>Hello {fullName}!</h1>
 	<p>
 		Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn
