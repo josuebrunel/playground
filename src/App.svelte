@@ -32,6 +32,13 @@
 	const toggleModal = () => {
 		showModal = !showModal;
 	};
+
+	const addPerson = (e) => {
+		console.log(e.detail);
+		const person = e.detail;
+		people = [person, ...people];
+		showModal = false;
+	};
 </script>
 
 <!-- <Modal /> -->
@@ -45,7 +52,7 @@
 
 <main>
 	<Modal message="Sign up for promo !" {showModal} on:click={toggleModal}>
-		<AddPersonForm />
+		<AddPersonForm on:addPerson={addPerson} />
 	</Modal>
 	<button on:click|once={toggleModal} />
 	<h1>Hello {fullName}!</h1>
