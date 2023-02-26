@@ -9,6 +9,7 @@
         <div class="modal">
             <p>{message}</p>
         </div>
+        <slot />
     </div>
 {/if}
 

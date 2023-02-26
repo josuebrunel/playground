@@ -43,7 +43,14 @@
 {/if}
 
 <main>
-	<Modal message="Sign up for promo !" {showModal} on:click={toggleModal} />
+	<Modal message="Sign up for promo !" {showModal} on:click={toggleModal}>
+		<h3>Add a new person</h3>
+		<form>
+			<input type="text" placeholder="name" />
+			<input type="text" placeholder="age" />
+			<button>add</button>
+		</form>
+	</Modal>
 	<button on:click|once={toggleModal} />
 	<h1>Hello {fullName}!</h1>
 	<p>
