@@ -1,4 +1,6 @@
 <script>
+	import Modal from "./Modal.svelte";
+
 	let firstName = "Josh";
 	let lastName = "Loking";
 
@@ -25,6 +27,7 @@
 	let num = 5;
 </script>
 
+<!-- <Modal /> -->
 {#if num > 20}
 	<p>Greater than 20</p>
 {:else if num > 5}
@@ -34,6 +37,7 @@
 {/if}
 
 <main>
+	<Modal />
 	<h1>Hello {fullName}!</h1>
 	<p>
 		Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn
