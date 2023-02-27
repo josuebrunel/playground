@@ -1,22 +1,25 @@
 <script>
+    import Card from "../../shared/Card.svelte";
     export let poll;
 
     // reactive value
     $: totalVotes = poll.votesA + poll.votesB;
 </script>
 
-<div class="poll">
-    <h3>{poll.question}</h3>
-    <p>Total votes: {totalVotes}</p>
-    <div class="answer">
-        <div class="percent percent-a">
-            <span>{poll.answerA} ({poll.votesA})</span>
-        </div>
-        <div class="percent percent-b">
-            <span>{poll.answerB} ({poll.votesB})</span>
+<Card>
+    <div class="poll">
+        <h3>{poll.question}</h3>
+        <p>Total votes: {totalVotes}</p>
+        <div class="answer">
+            <div class="percent percent-a">
+                <span>{poll.answerA} ({poll.votesA})</span>
+            </div>
+            <div class="percent percent-b">
+                <span>{poll.answerB} ({poll.votesB})</span>
+            </div>
         </div>
     </div>
-</div>
+</Card>
 
 <style>
     h3 {
