@@ -33,6 +33,20 @@
 		// switch to list of polls
 		activeItem = currentPolls;
 	};
+
+	const handleVote = (e) => {
+		const { id, option } = e.detail;
+		console.log(id, option);
+		let copiedPolls = [...polls];
+		let upvotedPoll = copiedPolls.find((poll) => poll.id == id);
+		if (option === "a") {
+			upvotedPoll.votesA++;
+		} else {
+			upvotedPoll.votesB++;
+		}
+
+		polls = copiedPolls;
+	};
 </script>
 
 <Header />
@@ -40,8 +54,7 @@
 <main>
 	<Tabs {activeItem} {items} on:tabChange={tabChange} />
 	{#if activeItem === currentPolls}
-		<p>Poll list component goes here</p>
-		<PollList {polls} />
+		<PollList {polls} on:vote={handleVote} />
 	{:else}
 		<p>New poll for component goes here</p>
 		<CreatePollForm on:add={handleAdd} />
