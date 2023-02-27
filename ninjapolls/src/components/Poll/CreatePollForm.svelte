@@ -1,5 +1,8 @@
 <script>
+    import { createEventDispatcher } from "svelte";
     import Button from "../../shared/Button.svelte";
+
+    let dispatch = createEventDispatcher();
 
     let fields = {
         question: "",
@@ -36,7 +39,8 @@
         }
 
         if (valid) {
-            console.log(fields);
+            let poll = { ...fields, votesA: 0, votesB: 0, id: Math.random() };
+            dispatch("add", poll);
         }
     };
 </script>
