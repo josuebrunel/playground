@@ -2,6 +2,7 @@
 	import Header from "./components/Header.svelte";
 	import Footer from "./components/Footer.svelte";
 	import Tabs from "./shared/Tabs.svelte";
+	import CreatePollForm from "./components/Poll/CreatePollForm.svelte";
 
 	const currentPolls = "Current Polls";
 	const createNewPoll = "Create new poll";
@@ -21,6 +22,7 @@
 		<p>Poll list component goes here</p>
 	{:else}
 		<p>New poll for component goes here</p>
+		<CreatePollForm />
 	{/if}
 </main>
 
