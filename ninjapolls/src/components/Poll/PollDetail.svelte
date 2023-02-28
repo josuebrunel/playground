@@ -7,6 +7,8 @@
 
     // reactive value
     $: totalVotes = poll.votesA + poll.votesB;
+    $: percentA = Math.floor((100 / totalVotes) * poll.votesA);
+    $: percentB = Math.floor((100 / totalVotes) * poll.votesB);
 
     const handleVote = (option, id) => {
         console.log("disptach detail", option, id);
@@ -20,13 +22,13 @@
         <p>Total votes: {totalVotes}</p>
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <div class="answer" on:click={() => handleVote("a", poll.id)}>
-            <div class="percent percent-a">
+            <div class="percent percent-a" style="width: {percentA}%">
                 <span>{poll.answerA} ({poll.votesA})</span>
             </div>
         </div>
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <div class="answer" on:click={() => handleVote("b", poll.id)}>
-            <div class="percent percent-b">
+            <div class="percent percent-b" style="width: {percentB}%">
                 <span>{poll.answerB} ({poll.votesB})</span>
             </div>
         </div>
@@ -59,5 +61,20 @@
     span {
         display: inline-block;
         padding: 10px 20px;
+    }
+
+    .percent {
+        height: 100%;
+        box-sizing: border-box;
+    }
+
+    .percent-a {
+        border-left: 4px solid #d91b42;
+        background: rgba(217, 27, 66, 0.2);
+    }
+
+    .percent-b {
+        border-left: 4px solid #45c496;
+        background: rgba(69, 196, 150, 0.2);
     }
 </style>
