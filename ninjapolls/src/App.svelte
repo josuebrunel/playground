@@ -15,25 +15,8 @@
 	};
 
 	const handleAdd = (e) => {
-		const poll = e.detail;
-		polls = [...polls, poll];
-		console.log(polls);
 		// switch to list of polls
 		activeItem = currentPolls;
-	};
-
-	const handleVote = (e) => {
-		const { id, option } = e.detail;
-		console.log(id, option);
-		let copiedPolls = [...polls];
-		let upvotedPoll = copiedPolls.find((poll) => poll.id == id);
-		if (option === "a") {
-			upvotedPoll.votesA++;
-		} else {
-			upvotedPoll.votesB++;
-		}
-
-		polls = copiedPolls;
 	};
 </script>
 
@@ -42,7 +25,7 @@
 <main>
 	<Tabs {activeItem} {items} on:tabChange={tabChange} />
 	{#if activeItem === currentPolls}
-		<PollList on:vote={handleVote} />
+		<PollList />
 	{:else}
 		<p>New poll for component goes here</p>
 		<CreatePollForm on:add={handleAdd} />
