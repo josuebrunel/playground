@@ -14,18 +14,6 @@
 		activeItem = e.detail;
 	};
 
-	//polls
-	let polls = [
-		{
-			id: 1,
-			question: "Go or Python ?",
-			answerA: "Go",
-			answerB: "Python",
-			votesA: 9,
-			votesB: 15,
-		},
-	];
-
 	const handleAdd = (e) => {
 		const poll = e.detail;
 		polls = [...polls, poll];
@@ -54,7 +42,7 @@
 <main>
 	<Tabs {activeItem} {items} on:tabChange={tabChange} />
 	{#if activeItem === currentPolls}
-		<PollList {polls} on:vote={handleVote} />
+		<PollList on:vote={handleVote} />
 	{:else}
 		<p>New poll for component goes here</p>
 		<CreatePollForm on:add={handleAdd} />
